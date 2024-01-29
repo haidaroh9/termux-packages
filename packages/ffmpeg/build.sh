@@ -100,14 +100,15 @@ termux_step_configure() {
 		--enable-libxvid \
 		--enable-libzimg \
 		--enable-mediacodec \
-		--enable-opencl \
+		--disable-opencl \
 		--enable-shared \
 		--prefix="$TERMUX_PREFIX" \
 		--target-os=android \
 		--extra-libs="-landroid-glob" \
-		--disable-vulkan \
+		--enable-vulkan \
+  --enable-libshaderc \
 		$_EXTRA_CONFIGURE_FLAGS \
-		--disable-libfdk-aac
+		--enable-libfdk-aac
 	# GPLed FFmpeg binaries linked against fdk-aac are not redistributable.
 }
 
