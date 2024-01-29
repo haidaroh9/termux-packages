@@ -69,6 +69,7 @@ termux_step_configure() {
 		--enable-gnutls \
 		--enable-gpl \
   --enable-nonfree \
+  --enable-hardcoded-tables \
 		--enable-version3 \
 		--enable-jni \
 		--enable-lcms2 \
