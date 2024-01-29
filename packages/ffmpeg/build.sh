@@ -68,6 +68,7 @@ termux_step_configure() {
 		--enable-cross-compile \
 		--enable-gnutls \
 		--enable-gpl \
+  --enable-nonfree \
 		--enable-version3 \
 		--enable-jni \
 		--enable-lcms2 \
