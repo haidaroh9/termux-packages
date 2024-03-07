@@ -7,8 +7,8 @@ TERMUX_PKG_VERSION="6.1.1"
 TERMUX_PKG_REVISION=2
 TERMUX_PKG_SRCURL=https://www.ffmpeg.org/releases/ffmpeg-${TERMUX_PKG_VERSION}.tar.xz
 TERMUX_PKG_SHA256=8684f4b00f94b85461884c3719382f1261f0d9eb3d59640a1f4ac0873616f968
-TERMUX_PKG_DEPENDS="freetype, game-music-emu, libaom, libandroid-glob, libass, libbluray, libbz2, libdav1d, libgnutls, libiconv, liblzma, libmp3lame, libopencore-amr, libopenmpt, libopus, librav1e, libsoxr, libsrt, libssh, libtheora, libv4l, libvo-amrwbenc, libvorbis, libvpx, libvidstab, libwebp, libx264, libx265, libxml2, libzimg, littlecms, svt-av1, libfdk-aac, shaderc, mesa, mesa-dev, mesa-vulkan-icd-freedreno, xvidcore, zlib"
-TERMUX_PKG_BUILD_DEPENDS="vulkan-headers"
+TERMUX_PKG_DEPENDS="freetype, game-music-emu, libaom, libandroid-glob, libass, libbluray, libbz2, libdav1d, libgnutls, libiconv, liblzma, libmp3lame, libopencore-amr, libopenmpt, libopus, librav1e, libsoxr, libsrt, libssh, libtheora, libv4l, libvo-amrwbenc, libvorbis, libvpx, libvidstab, libwebp, libx264, libx265, libxml2, libzimg, littlecms, ocl-icd, vulkan-loader, svt-av1, mesa-vulkan-icd-freedreno-dri3, shaderc, libfdk-aac, xvidcore, zlib"
+TERMUX_PKG_BUILD_DEPENDS="opencl-headers, vulkan-headers"
 TERMUX_PKG_CONFLICTS="libav"
 TERMUX_PKG_BREAKS="ffmpeg-dev"
 TERMUX_PKG_REPLACES="ffmpeg-dev"
@@ -67,9 +67,10 @@ termux_step_configure() {
 		--disable-static \
 		--disable-symver \
 		--enable-cross-compile \
-                --enable-nonfree \
-		--enable-hardcoded-tables \
 		--enable-gnutls \
+                --enable-nonfree \
+		--enable-libshaderc \
+		--enable-hardcoded-tables \
 		--enable-gpl \
 		--enable-version3 \
 		--enable-jni \
@@ -103,13 +104,12 @@ termux_step_configure() {
 		--enable-libxvid \
 		--enable-libzimg \
 		--enable-mediacodec \
-		--disable-opencl \
+		--enable-opencl \
 		--enable-shared \
 		--prefix="$TERMUX_PREFIX" \
 		--target-os=android \
 		--extra-libs="-landroid-glob" \
 		--enable-vulkan \
-                --enable-libshaderc \
 		$_EXTRA_CONFIGURE_FLAGS \
 		--enable-libfdk-aac
 	# GPLed FFmpeg binaries linked against fdk-aac are not redistributable.
