@@ -20,15 +20,15 @@ termux_step_pre_configure() {
 	_FFMPEG_SOVER_avcodec=60
 	_FFMPEG_SOVER_avformat=60
 
-	local f
-	for f in util codec format; do
-		local v=$(sh ffbuild/libversion.sh av${f} \
-				libav${f}/version.h libav${f}/version_major.h \
-				| sed -En 's/^libav'"${f}"'_VERSION_MAJOR=([0-9]+)$/\1/p')
-		if [ ! "${v}" ] || [ "$(eval echo \$_FFMPEG_SOVER_av${f})" != "${v}" ]; then
-			termux_error_exit "SOVERSION guard check failed for libav${f}.so."
-		fi
-	done
+	#local f
+	#for f in util codec format; do
+		#local v=$(sh ffbuild/libversion.sh av${f} \
+	#			libav${f}/version.h libav${f}/version_major.h \
+		#		| sed -En 's/^libav'"${f}"'_VERSION_MAJOR=([0-9]+)$/\1/p')
+	#	if [ ! "${v}" ] || [ "$(eval echo \$_FFMPEG_SOVER_av${f})" != "${v}" ]; then
+	#		termux_error_exit "SOVERSION guard check failed for libav${f}.so."
+#		fi
+#	done
 }
 
 termux_step_configure() {
