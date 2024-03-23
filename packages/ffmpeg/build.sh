@@ -6,7 +6,8 @@ TERMUX_PKG_MAINTAINER="@termux"
 TERMUX_PKG_VERSION="6.1.1"
 TERMUX_PKG_REVISION=3
 TERMUX_PKG_SRCURL=https://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2
-TERMUX_PKG_SHA256=fa0a44531e15f40ff0e42b8d34c25be3d9b3f5d6407f2f064e68fe4ef3dc074a
+TERMUX_PKG_SHA256=
+a81a5a634680c2d9c59a7f8ed66d8a35a6b5a2a67f73871744abe9ba89b2fbe1
 TERMUX_PKG_DEPENDS="freetype, game-music-emu, libaom, libandroid-glob, libass, libbluray, libbz2, libdav1d, libgnutls, libiconv, liblzma, libmp3lame, libopencore-amr, libopenmpt, libopus, librav1e, libsoxr, libsrt, libssh, libtheora, libv4l, libvo-amrwbenc, libvorbis, libvpx, libvidstab, libwebp, libx264, libx265, libxml2, libzimg, littlecms, ocl-icd, svt-av1, libfdk-aac, xvidcore, zlib"
 TERMUX_PKG_BUILD_DEPENDS="opencl-headers"
 TERMUX_PKG_CONFLICTS="libav"
