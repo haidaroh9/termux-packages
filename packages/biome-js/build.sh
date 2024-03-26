@@ -7,13 +7,28 @@ TERMUX_PKG_VERSION="1.6.3"
 TERMUX_PKG_SRCURL=https://github.com/biomejs/biome/archive/refs/tags/cli/v${TERMUX_PKG_VERSION}.tar.gz
 TERMUX_PKG_SHA256=a7172467bb0a15fa4c1138f5540493f8cb80297958b3d98ad80d18232cbb9537
 
+termux_step_pre_configure() {
+termux_setup_rust
+
+	: "${CARGO_HOME:=$HOME/.cargo}"
+	export CARGO_HOME
+
+	cargo fetch --target "${CARGO_TARGET_NAME}"
+
+	for d in $CARGO_HOME/registry/src/*/trust-dns-resolver-*; do
+		sed -e "s|@TERMUX_PREFIX@|$TERMUX_PREFIX|" \
+			$TERMUX_PKG_BUILDER_DIR/trust-dns-resolver.diff \
+			| patch --silent -p1 -d ${d} || :
+	done
+ }
+
 termux_step_make() {
-	termux_setup_rust
+	
 
 	RUSTFLAGS+=" -C link-arg=$($CC -print-libgcc-file-name) strip=symbols"
-        . "$HOME/.cargo/env"
 
 	export JEMALLOC_SYS_WITH_LG_PAGE=16
+ 
 	cargo build --jobs $TERMUX_MAKE_PROCESSES --target $CARGO_TARGET_NAME --release
 }
 
