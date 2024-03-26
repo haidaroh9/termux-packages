@@ -23,7 +23,7 @@ termux_setup_rust
 termux_step_make() {
 	
 
-	RUSTFLAGS+=" -C link-arg=$($CC -print-libgcc-file-name) strip=symbols"
+	RUSTFLAGS+=" -C strip=symbols"
 
 	export JEMALLOC_SYS_WITH_LG_PAGE=16
  
