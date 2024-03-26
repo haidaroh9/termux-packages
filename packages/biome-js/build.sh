@@ -7,6 +7,7 @@ TERMUX_PKG_VERSION="1.6.3"
 TERMUX_PKG_DEPENDS="jq"
 TERMUX_PKG_SRCURL=https://github.com/biomejs/biome/archive/refs/tags/cli/v${TERMUX_PKG_VERSION}.tar.gz
 TERMUX_PKG_SHA256=a7172467bb0a15fa4c1138f5540493f8cb80297958b3d98ad80d18232cbb9537
+TERMUX_PKG_BUILD_IN_SRC=true
 
 termux_step_pre_configure() {
 termux_setup_rust
@@ -16,7 +17,8 @@ termux_setup_rust
 
 	cargo fetch --target "${CARGO_TARGET_NAME}"
 
-	jq '.name' $PWD/Cargo.toml | sed 's/\"//g'
+	jq '.name' $PWD/Car
+
  }
 
 termux_step_make() {
