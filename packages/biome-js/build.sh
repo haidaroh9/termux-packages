@@ -15,7 +15,7 @@ termux_setup_rust
 
 	cargo fetch --target "${CARGO_TARGET_NAME}"
 
-	cp biomejs/biome/Cargo.toml /home/builder/.termux-build/biome-js/build
+	cp /home/builder/.termux-build/biome-js/Cargo.toml /home/builder/.termux-build/biome-js/build
  }
 
 termux_step_make() {
