@@ -10,6 +10,7 @@ TERMUX_PKG_SHA256=a7172467bb0a15fa4c1138f5540493f8cb80297958b3d98ad80d18232cbb95
 TERMUX_PKG_BUILD_IN_SRC=true
 
 termux_step_pre_configure() {
+RUSTFLAGS+=" -C link-arg=$(${CC} -print-libgcc-file-name)"
 termux_setup_rust
 
 	: "${CARGO_HOME:=$HOME/.cargo}"
