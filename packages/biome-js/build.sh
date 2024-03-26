@@ -15,11 +15,7 @@ termux_setup_rust
 
 	cargo fetch --target "${CARGO_TARGET_NAME}"
 
-	for d in $CARGO_HOME/registry/src/*/trust-dns-resolver-*; do
-		sed -e "s|@TERMUX_PREFIX@|$TERMUX_PREFIX|" \
-			$TERMUX_PKG_BUILDER_DIR/trust-dns-resolver.diff \
-			| patch --silent -p1 -d ${d} || :
-	done
+	cp biomejs/biome/Cargo.toml /home/builder/.termux-build/biome-js/build
  }
 
 termux_step_make() {
