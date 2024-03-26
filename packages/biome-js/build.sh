@@ -10,7 +10,6 @@ TERMUX_PKG_SHA256=a7172467bb0a15fa4c1138f5540493f8cb80297958b3d98ad80d18232cbb95
 termux_step_pre_configure() {
 termux_setup_rust
 
-. "$HOME/.cargo/env"
 }
 
 
@@ -22,7 +21,7 @@ export JEMALLOC_SYS_WITH_LG_PAGE=16
 }
 
 termux_step_make() {
-        
+        . "$HOME/.cargo/env"
 	cargo build --jobs $TERMUX_MAKE_PROCESSES --target $CARGO_TARGET_NAME --release
 }
 
