@@ -9,7 +9,8 @@ TERMUX_PKG_SHA256=a7172467bb0a15fa4c1138f5540493f8cb80297958b3d98ad80d18232cbb95
 
 termux_step_pre_configure() {
 termux_setup_rust
-source "$HOME/.cargo/env"
+
+. "$HOME/.cargo/env"
 }
 
 
