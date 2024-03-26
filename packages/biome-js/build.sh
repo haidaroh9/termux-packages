@@ -20,6 +20,7 @@ export JEMALLOC_SYS_WITH_LG_PAGE=16
 }
 
 termux_step_make() {
+        source "$HOME/.cargo/env"
 	cargo build --jobs $TERMUX_MAKE_PROCESSES --target $CARGO_TARGET_NAME --release
 }
 
