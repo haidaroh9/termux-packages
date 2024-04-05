@@ -22,7 +22,8 @@ termux_step_configure() {
 	fi
 
 	./configure --prefix="$TERMUX_PREFIX" \
-		--with-lua-include="$TERMUX_PREFIX/include"
+		--with-lua-bin="$TERMUX_PREFIX/bin" \
+                --sysconfdir="$TERMUX_PREFIX/etc"
 }
 
 termux_step_post_make_install() {
