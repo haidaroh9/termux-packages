@@ -8,8 +8,8 @@ TERMUX_PKG_SHA256=25f56b3c7272fb35b869049371d649a1bbe668a56d24df0a66e3712e35dd44
 TERMUX_PKG_AUTO_UPDATE=true
 __LUA_VERSION=5.1 # Lua version against which it will be built.
 # Do not use varible here since buildorder.py do not evaluate bash before reading.
-TERMUX_PKG_DEPENDS="curl, lua51"
-TERMUX_PKG_BUILD_DEPENDS="liblua51"
+TERMUX_PKG_DEPENDS="curl, lua54"
+TERMUX_PKG_BUILD_DEPENDS="liblua54"
 TERMUX_PKG_BUILD_IN_SRC=true
 TERMUX_PKG_PLATFORM_INDEPENDENT=true
 
