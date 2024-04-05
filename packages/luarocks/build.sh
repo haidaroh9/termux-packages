@@ -22,7 +22,8 @@ termux_step_configure() {
 	fi
 
 	./configure --prefix="$TERMUX_PREFIX" \
-		--with-lua="$__LUA_VERSION"
+                  -lua-version="$__LUA_VERSION"
+		##--with-lua="$TERMUX_PREFIX"
 }
 
 termux_step_post_make_install() {
